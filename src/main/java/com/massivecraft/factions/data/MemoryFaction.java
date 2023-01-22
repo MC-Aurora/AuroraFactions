@@ -75,6 +75,7 @@ public abstract class MemoryFaction implements Faction, EconomyParticipator {
     protected long lastDTRUpdateTime;
     protected long frozenDTRUntilTime;
     protected int tntBank;
+    protected HashMap<String, Object> addonData = new HashMap<>();
     protected transient OfflinePlayer offlinePlayer;
 
     public HashMap<String, List<String>> getAnnouncements() {
@@ -702,6 +703,18 @@ public abstract class MemoryFaction implements Faction, EconomyParticipator {
 
     public void setTNTBank(int amount) {
         this.tntBank = amount;
+    }
+
+    public Boolean hasAddonItem(String key) {
+        return this.addonData.containsKey(key);
+    }
+
+    public Object getAddonItem(String key) {
+        return this.addonData.get(key);
+    }
+
+    public void setAddonItem(String key, Object value) {
+        this.addonData.put(key, value);
     }
 
     // -------------------------------

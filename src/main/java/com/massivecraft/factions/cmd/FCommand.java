@@ -9,10 +9,7 @@ import com.massivecraft.factions.util.TextUtil;
 import org.bukkit.ChatColor;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 public abstract class FCommand {
@@ -115,6 +112,14 @@ public abstract class FCommand {
     public final List<FCommand> subCommands;
 
     public void addSubCommand(FCommand subCommand) {
+        this.subCommands.add(subCommand);
+    }
+
+    public void addSubCommand(FCommand subCommand, Boolean overwriteExisting) {
+        if(overwriteExisting) {
+            this.subCommands.removeIf(cmd -> !Collections.disjoint(cmd.aliases, subCommand.aliases));
+        }
+
         this.subCommands.add(subCommand);
     }
 

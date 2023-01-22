@@ -80,15 +80,15 @@ public class CmdTicketInfo extends FCommand {
 
             private String name;
             private UUID uuid;
-            private List<PermInfo> permissions;
+//            private List<PermInfo> permissions;
 
             public PlayerInfo(Player player) {
                 this.name = player.getName();
                 this.uuid = player.getUniqueId();
-                this.permissions = new ArrayList<>();
-                for (Permission permission : Permission.values()) {
-                    this.permissions.add(new PermInfo(permission.toString(), player.hasPermission(permission.toString())));
-                }
+//                this.permissions = new ArrayList<>();
+//                for (Permission permission : Permission.values()) {
+//                    this.permissions.add(new PermInfo(permission.toString(), player.hasPermission(permission.toString())));
+//                }
             }
         }
 
