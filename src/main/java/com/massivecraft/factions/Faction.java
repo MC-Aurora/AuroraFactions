@@ -164,6 +164,12 @@ public interface Faction extends EconomyParticipator, Selectable {
 
     void setTNTBank(int amount);
 
+    Boolean hasAddonItem(String key);
+
+    Object getAddonItem(String key);
+
+    void setAddonItem(String key, Object value);
+
     // -------------------------------
     // Relation and relation colors
     // -------------------------------
