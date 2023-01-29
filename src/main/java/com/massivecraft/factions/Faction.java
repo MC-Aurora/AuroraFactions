@@ -170,6 +170,9 @@ public interface Faction extends EconomyParticipator, Selectable {
 
     void setAddonItem(String key, Object value);
 
+    int getMemberLimit();
+    void setMemberLimit(int limit);
+
     // -------------------------------
     // Relation and relation colors
     // -------------------------------
