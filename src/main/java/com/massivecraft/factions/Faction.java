@@ -173,6 +173,9 @@ public interface Faction extends EconomyParticipator, Selectable {
     int getMemberLimit();
     void setMemberLimit(int limit);
 
+    int getWarpLimit();
+    void setWarpLimit(int limit);
+
     // -------------------------------
     // Relation and relation colors
     // -------------------------------

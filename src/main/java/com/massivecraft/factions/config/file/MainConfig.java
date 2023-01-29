@@ -496,15 +496,9 @@ public class MainConfig {
         public class Warp {
             @Comment("Warmup seconds before command executes. Set to 0 for no warmup.")
             private int delay = 0;
-            @Comment("What should be the maximum amount of warps that a Faction can set?")
-            private int maxWarps = 5;
 
             public int getDelay() {
                 return delay;
-            }
-
-            public int getMaxWarps() {
-                return maxWarps;
             }
         }
 

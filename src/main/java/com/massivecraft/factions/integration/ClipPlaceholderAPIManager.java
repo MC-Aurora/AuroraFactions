@@ -154,6 +154,8 @@ public class ClipPlaceholderAPIManager extends PlaceholderExpansion implements R
             case "faction_leader":
                 FPlayer fAdmin = faction.getFPlayerAdmin();
                 return fAdmin == null ? "Server" : fAdmin.getName().substring(0, fAdmin.getName().length() > 14 ? 13 : fAdmin.getName().length());
+            case "faction_max_warps":
+                return String.valueOf(faction.getWarpLimit());
             case "faction_warps":
                 return String.valueOf(faction.getWarps().size());
             case "faction_raidable":
