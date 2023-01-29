@@ -39,7 +39,7 @@ public class CmdTNTSiphon extends FCommand {
             return;
         }
 
-        if (FactionsPlugin.getInstance().conf().commands().tnt().isAboveMaxStorage(context.faction.getTNTBank() + 1)) {
+        if (context.faction.getTNTBank() + 1 > context.faction.getTNTLimit()) {
             context.msg(TL.COMMAND_TNT_SIPHON_FAIL_FULL);
             return;
         }
@@ -52,10 +52,11 @@ public class CmdTNTSiphon extends FCommand {
         List<Dispenser> list = CmdTNTFill.getDispensers(context.player.getLocation(), radius, context.faction.getId());
 
         int canTake;
-        if (FactionsPlugin.getInstance().conf().commands().tnt().getMaxStorage() < 0) {
+        int limit = context.faction.getTNTLimit();
+        if (limit < 0) {
             canTake = Integer.MAX_VALUE;
         } else {
-            canTake = FactionsPlugin.getInstance().conf().commands().tnt().getMaxStorage();
+            canTake = limit;
         }
 
         canTake -= context.faction.getTNTBank();

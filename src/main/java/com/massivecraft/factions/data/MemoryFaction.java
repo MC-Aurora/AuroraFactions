@@ -77,6 +77,7 @@ public abstract class MemoryFaction implements Faction, EconomyParticipator {
     protected int tntBank;
     protected HashMap<String, Object> addonData = new HashMap<>();
     protected int memberLimit = 9;
+    protected int tntLimit = 1_000_000;
     protected int warpLimit = 2;
     protected transient OfflinePlayer offlinePlayer;
 
@@ -725,6 +726,14 @@ public abstract class MemoryFaction implements Faction, EconomyParticipator {
 
     public void setMemberLimit(int limit) {
         this.memberLimit = limit;
+    }
+
+    public int getTNTLimit() {
+        return this.tntLimit;
+    }
+
+    public void setTNTLimit(int limit) {
+        this.tntLimit = limit;
     }
 
     public int getWarpLimit() {

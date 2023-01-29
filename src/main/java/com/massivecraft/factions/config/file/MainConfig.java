@@ -469,23 +469,10 @@ public class MainConfig {
 
         public class TNT {
             private boolean enable = false;
-            @Comment("Maximum storage. Set to -1 (or lower) to disable")
-            private int maxStorage = -1;
             private int maxRadius = 5;
 
             public int getMaxRadius() {
                 return maxRadius;
-            }
-
-            public int getMaxStorage() {
-                return maxStorage;
-            }
-
-            public boolean isAboveMaxStorage(int amount) {
-                if (maxStorage < 0) {
-                    return false;
-                }
-                return amount > maxStorage;
             }
 
             public boolean isEnable() {

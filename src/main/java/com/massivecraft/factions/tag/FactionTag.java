@@ -80,7 +80,7 @@ public enum FactionTag implements Tag {
     }),
     TNT_MAX("tnt-max-balance", (fac) -> {
         if (FactionsPlugin.getInstance().conf().commands().tnt().isEnable()) {
-            return String.valueOf(FactionsPlugin.getInstance().conf().commands().tnt().getMaxStorage());
+            return String.valueOf(fac.getTNTLimit());
         }
         return Tag.isMinimalShow() ? null : "";
     }),
