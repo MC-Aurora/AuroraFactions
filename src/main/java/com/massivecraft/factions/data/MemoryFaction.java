@@ -1,12 +1,6 @@
 package com.massivecraft.factions.data;
 
-import com.massivecraft.factions.Board;
-import com.massivecraft.factions.FLocation;
-import com.massivecraft.factions.FPlayer;
-import com.massivecraft.factions.FPlayers;
-import com.massivecraft.factions.Faction;
-import com.massivecraft.factions.Factions;
-import com.massivecraft.factions.FactionsPlugin;
+import com.massivecraft.factions.*;
 import com.massivecraft.factions.config.file.PermissionsConfig;
 import com.massivecraft.factions.event.FactionAutoDisbandEvent;
 import com.massivecraft.factions.event.FactionNewAdminEvent;
@@ -16,32 +10,22 @@ import com.massivecraft.factions.integration.Econ;
 import com.massivecraft.factions.integration.LWC;
 import com.massivecraft.factions.landraidcontrol.DTRControl;
 import com.massivecraft.factions.landraidcontrol.LandRaidControl;
-import com.massivecraft.factions.perms.PermSelector;
-import com.massivecraft.factions.perms.PermissibleAction;
-import com.massivecraft.factions.perms.Relation;
-import com.massivecraft.factions.perms.Role;
-import com.massivecraft.factions.perms.Selectable;
+import com.massivecraft.factions.perms.*;
 import com.massivecraft.factions.struct.BanInfo;
 import com.massivecraft.factions.struct.Permission;
 import com.massivecraft.factions.util.LazyLocation;
 import com.massivecraft.factions.util.MiscUtil;
 import com.massivecraft.factions.util.RelationUtil;
 import com.massivecraft.factions.util.TL;
+import net.auroramc.serialization.DeepObjectSerializer;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Set;
-import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
@@ -716,8 +700,24 @@ public abstract class MemoryFaction implements Faction, EconomyParticipator {
         return this.addonData.get(key);
     }
 
+    public <T> T getAddonItemAsObject(String key, Class<T> type) {
+        return DeepObjectSerializer.loadObject(this, key, type);
+    }
+
+    public <T> List<T> getAddonItemAsList(String key, Class<T> type) {
+        return DeepObjectSerializer.loadList(this, key, type);
+    }
+
     public void setAddonItem(String key, Object value) {
         this.addonData.put(key, value);
+    }
+
+    public void setAddonItemAsObject(String key, Object value) {
+        DeepObjectSerializer.putObject(this, value, key);
+    }
+
+    public void setAddonItemAsList(String key, List<?> objects) {
+        DeepObjectSerializer.putList(this, objects, key);
     }
 
     public int getMemberLimit() {

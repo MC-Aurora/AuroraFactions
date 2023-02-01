@@ -168,15 +168,26 @@ public interface Faction extends EconomyParticipator, Selectable {
 
     Object getAddonItem(String key);
 
+    <T> T getAddonItemAsObject(String key, Class<T> type);
+
+    <T> List<T> getAddonItemAsList(String key, Class<T> type);
+
     void setAddonItem(String key, Object value);
 
+    void setAddonItemAsObject(String key, Object value);
+
+    void setAddonItemAsList(String key, List<?> objects);
+
     int getMemberLimit();
+
     void setMemberLimit(int limit);
 
     int getTNTLimit();
+
     void setTNTLimit(int limit);
 
     int getWarpLimit();
+
     void setWarpLimit(int limit);
 
     // -------------------------------
