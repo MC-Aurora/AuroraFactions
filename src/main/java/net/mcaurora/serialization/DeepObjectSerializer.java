@@ -1,4 +1,4 @@
-package net.auroramc.serialization;
+package net.mcaurora.serialization;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
