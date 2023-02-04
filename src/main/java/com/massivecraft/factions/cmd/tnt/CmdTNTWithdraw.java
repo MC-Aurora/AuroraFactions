@@ -21,6 +21,7 @@ public class CmdTNTWithdraw extends FCommand {
         super();
         this.aliases.add("withdraw");
         this.aliases.add("w");
+        this.aliases.add("take");
         this.requiredArgs.add("amount");
 
         this.requirements = new CommandRequirements.Builder(Permission.TNT_WITHDRAW).withAction(PermissibleActions.TNTWITHDRAW).memberOnly().build();

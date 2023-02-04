@@ -11,6 +11,7 @@ public class CmdTNTInfo extends FCommand {
         super();
         this.aliases.add("info");
         this.aliases.add("status");
+        this.aliases.add("bank");
 
         this.requirements = new CommandRequirements.Builder(Permission.TNT_INFO).memberOnly().build();
     }

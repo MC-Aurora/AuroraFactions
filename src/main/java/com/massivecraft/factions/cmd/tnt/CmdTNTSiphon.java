@@ -19,6 +19,7 @@ public class CmdTNTSiphon extends FCommand {
         super();
         this.aliases.add("siphon");
         this.aliases.add("s");
+        this.aliases.add("unfill");
         this.requiredArgs.add("radius");
         this.optionalArgs.put("amount", "all");
 

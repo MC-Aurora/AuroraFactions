@@ -20,6 +20,7 @@ public class CmdTNTDeposit extends FCommand {
         super();
         this.aliases.add("deposit");
         this.aliases.add("d");
+        this.aliases.add("add");
         this.requiredArgs.add("amount");
 
         this.requirements = new CommandRequirements.Builder(Permission.TNT_DEPOSIT).withAction(PermissibleActions.TNTDEPOSIT).memberOnly().build();
